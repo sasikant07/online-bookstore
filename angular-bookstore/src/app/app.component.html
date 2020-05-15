@@ -5,31 +5,30 @@
 
       <a class="navbar-brand" href="#">Online Bookstore</a>
 
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="#">About us</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Contact us</a>
-        </li>
-      </ul>
       <!-- this is for search component -->
-      <app-search></app-search>
-
-      <!-- this is for cart status -->
       <div class="ml-auto">
-        <app-cart-status></app-cart-status>
+      <app-search></app-search>
       </div>
 
-      <ul class="navbar-nav">
-        <li class="nav-item">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
           <a class="nav-link" href="#">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Profile</a>
-        </li>
+          <ul class="dropdown-menu fade-up">
+          <li><a class="dropdown-item" href="#"><i class="fas fa-user-circle"></i> My Profile </a></li>
+          <hr/>
+          <li><a class="dropdown-item" href="#"><i class="fab fa-shopify"></i> Orders </a></li>
+          <hr/>
+          <li><a class="dropdown-item" href="#"><i class="far fa-heart"></i> Wishlist </a></li>
+          <hr/>
+          <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i> Logout </a></li>
+          </ul>
+      </li>
       </ul>
 
+      <!-- this is for cart status -->
+      <div class="ml-2">
+        <app-cart-status></app-cart-status>
+      </div>
     </nav>
     <br/>
 
@@ -39,11 +38,47 @@
     </div>
   </div>
 
-  <!-- Footer -->
-  <footer class="py-5 footer">
-    <div class="container">
-      <p class="m-0 text-center text-dark">Copyright &copy; www.bookstore.com 2020</p>
+  <!-- footer -->
+  <footer class="pt-4 my-md-5 pt-md-5 border-top">
+    <div class="row">
+      <div class="col-12 col-md">
+        <p class="m-0 text-center text-dark">Copyright &copy; 2020 www.bookstore.com</p>
+      </div>
+      <div class="col-6 col-md">
+        <h5>About</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="text-muted" href="#">Contact Us</a></li>
+          <li><a class="text-muted" href="#">About Us</a></li>
+          <li><a class="text-muted" href="#">Careers</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Help</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="text-muted" href="#">Payments</a></li>
+          <li><a class="text-muted" href="#">Shipping</a></li>
+          <li><a class="text-muted" href="#">Cancellation & Returns</a></li>
+          <li><a class="text-muted" href="#">FAQ's</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Policy</h5>
+            <ul class="list-unstyled text-small">
+              <li><a class="text-muted" href="#">Return Policy</a></li>
+              <li><a class="text-muted" href="#">Terms Of Use</a></li>
+              <li><a class="text-muted" href="#">Privacy</a></li>
+              <li><a class="text-muted" href="#">Sitemap</a></li>
+            </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Mail Us:</h5>
+        <ul class="list-unstyled text-small">
+          <p class="text-muted">Bookstore Internet Private Limited,</p>
+          <p class="text-muted">BTM Layout 1st Stage</p>
+          <p class="text-muted">Bengaluru, 560029</p>
+          <p class="text-muted">Karnataka, India</p>
+        </ul>
+      </div>
     </div>
-    <!-- /.container -->
   </footer>
 </div>
