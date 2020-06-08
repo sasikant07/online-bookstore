@@ -4,7 +4,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 import { BookListComponent } from './components/book-list/book-list.component';
 import { BookService } from './services/book.service';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
@@ -27,7 +26,6 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    LoadingSpinnerComponent,
     BookListComponent,
     PageNotFoundComponent,
     BookCategoryComponent,
