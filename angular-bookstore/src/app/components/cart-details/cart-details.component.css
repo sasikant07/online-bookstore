@@ -1,0 +1,18 @@
+.fa-minus-circle {
+    color: red;
+    position: relative;
+    top: 3px;
+  }
+
+  .fa-plus-circle {
+      color: dodgerblue;
+      position: relative;
+      top: 3px;
+  }
+
+  .fa-trash-alt {
+    color: red;
+    position: relative;
+    top: 3px;
+    left: 20px;
+}

@@ -18,7 +18,9 @@
                         <tbody>
                             <tr *ngFor="let cartItem of cartItems">
                                 <td>
-                                    <img [src]="cartItem.imageUrl" class="img-responsive" width="150" height="200" />
+                                    <a routerLink="/books/{{cartItem.id}}">
+                                        <img [src]="cartItem.imageUrl" class="img-responsive" width="150" height="200" />
+                                    </a>
                                 </td>
                                 <td>
                                     <p>{{ cartItem.name }}</p>
@@ -27,8 +29,20 @@
                                 <td>
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <p>Quantity: {{ cartItem.quantity }}</p>
+                                            <p>Quantity: 
+                                                <span class="pointer" (click)="decrementQuantity(cartItem)">
+                                                    <i class="fa fa-minus-circle fa-lg" title="decrease quantity"></i>
+                                                </span>
+                                                {{ cartItem.quantity }}
+                                                <span class="pointer" (click)="incrementQuantity(cartItem)">
+                                                    <i class="fa fa-plus-circle fa-lg" title="increase quantity"></i>
+                                                </span>
+                                                <span class="pointer" (click)="deleteItem(cartItem)">
+                                                    <i class="fas fa-trash-alt fa-lg" title="delete item"></i>
+                                                </span>
+                                            </p>
                                         </div>
+                                        
                                         <div class="col-md-12 mt-2">
                                             <p>Subtotal: {{ cartItem.quantity * cartItem.unitPrice | currency: 'INR' }}
                                             </p>
