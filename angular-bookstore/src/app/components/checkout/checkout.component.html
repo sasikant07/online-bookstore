@@ -1,0 +1,230 @@
+<div class="row">
+    <!-- Catgeory Component -->
+    <div class="col-md-3">
+        <app-book-category></app-book-category>
+    </div>
+    <!-- checkout forms and cart items -->
+    <div class="col-md-9">
+        <div class="row">
+            <!-- checkout form -->
+            <div class="col-md-8">
+                <form [formGroup]="checkoutFormGroup" (ngSubmit)="onSubmit()">
+                    <!-- customer info -->
+                    <fieldset class="form-border">
+                        <legend class="form-border">
+                            <h3>Customer Details</h3>
+                        </legend>
+                        <div formGroupName="customer">
+                            <div class="row form-group">
+                                <div class="col-md-3">
+                                    <label>First Name</label>
+                                </div>
+                                <div class="col-md-9">
+                                    <input type="text" formControlName="firstName" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-md-3">
+                                    <label>last Name</label>
+                                </div>
+                                <div class="col-md-9">
+                                    <input type="text" formControlName="lastName" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-md-3">
+                                    <label>Email</label>
+                                </div>
+                                <div class="col-md-9">
+                                    <input type="text" formControlName="email" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- shipping Info -->
+                    <fieldset class="form-border">
+                        <legend class="form-border">
+                            <h3>Shipping Address</h3>
+                        </legend>
+                        <div formGroupName="shippingAddress">
+                            <div class="row form-group">
+                                <div class="col-md-3">
+                                    <label>Street</label>
+                                </div>
+                                <div class="col-md-9">
+                                    <input type="text" formControlName="street" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-md-3">
+                                    <label>City</label>
+                                </div>
+                                <div class="col-md-9">
+                                    <input type="text" formControlName="city" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-md-5 mb-3">
+                                    <label>Country</label>
+                                    <select formControlName="country" class="custom-select d-block w-100">
+                                      <option value="">Choose...</option>
+                                      <option>India</option>
+                                    </select>
+                                  </div>
+                                  <div class="col-md-4 mb-3">
+                                    <label>State</label>
+                                    <select formControlName="state" class="custom-select d-block w-100">
+                                      <option value="">Choose...</option>
+                                      <option>Delhi</option>
+                                      <option>Maharashtra</option>
+                                      <option>West Bengal</option>
+                                      <option>Tamil Nadu</option>
+                                    </select>
+                                  </div>
+                                  <div class="col-md-3 mb-3">
+                                    <label>Pin Code</label>
+                                    <input formControlName="zipcode" type="text" class="form-control">
+                                  </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <br/>
+                    <!-- checkbox for copy shipping address to billing address -->
+                    <div class="form-check">
+                        <input (change)="copyShippingAddressToBillingAddress($event)" type="checkbox" class="form-check-input" />
+                        <label>Shipping address is the same as my billing address</label>
+                    </div>
+                    <br/>
+                    <!-- billing info -->
+                    <fieldset class="form-border">
+                        <legend class="form-border">
+                            <h3>Billing Address</h3>
+                        </legend>
+                        <div formGroupName="billingAddress">
+                            <div class="row form-group">
+                                <div class="col-md-3">
+                                    <label>Street</label>
+                                </div>
+                                <div class="col-md-9">
+                                    <input type="text" formControlName="street" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-md-3">
+                                    <label>City</label>
+                                </div>
+                                <div class="col-md-9">
+                                    <input type="text" formControlName="city" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-md-5 mb-3">
+                                    <label>Country</label>
+                                    <select formControlName="country" class="custom-select d-block w-100">
+                                      <option value="">Choose...</option>
+                                      <option>India</option>
+                                    </select>
+                                  </div>
+                                  <div class="col-md-4 mb-3">
+                                    <label>State</label>
+                                    <select formControlName="state" class="custom-select d-block w-100">
+                                      <option value="">Choose...</option>
+                                      <option>Delhi</option>
+                                      <option>Maharashtra</option>
+                                      <option>West Bengal</option>
+                                      <option>Tamil Nadu</option>
+                                    </select>
+                                  </div>
+                                  <div class="col-md-3 mb-3">
+                                    <label>Pin Code</label>
+                                    <input formControlName="zipcode" type="text" class="form-control">
+                                  </div>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- Payment Information -->
+                    <fieldset class="form-border">
+                        <legend class="form-border">
+                            <h3>Payment</h3>
+                        </legend>
+                        <div formGroupName="payment">
+                            <div class="row form-group">
+                                <div class="col-md-3">
+                                    <label>Card Type</label>
+                                </div>
+                                <div class="col-md-9">
+                                    <select formControlName="cardType" class="custom-select d-block w-100">
+                                        <option value="">Choose...</option>
+                                        <option>India</option>
+                                      </select>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-md-6 mb-3">
+                                    <label>Name on card</label>
+                                    <input type="text" formControlName="nameOnCard" class="form-control" />
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label>Card number</label>
+                                    <input type="text" formControlName="cardNumber" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-md-5 mb-3">
+                                    <label>Expiration Month</label>
+                                    <select formControlName="expirationMonth" class="custom-select d-block w-100">
+                                      <option value="">Choose...</option>
+                                      <option>India</option>
+                                    </select>
+                                  </div>
+                                  <div class="col-md-4 mb-3">
+                                    <label>Expiration Year</label>
+                                    <select formControlName="expirationYear" class="custom-select d-block w-100">
+                                      <option value="">Choose...</option>
+                                      <option>Delhi</option>
+                                    </select>
+                                  </div>
+                                  <div class="col-md-3 mb-3">
+                                    <label>CVV</label>
+                                    <input formControlName="cvv" type="text" class="form-control">
+                                  </div>
+                            </div>
+                        </div>
+                    </fieldset>
+
+
+                    <!-- submit button to purchase -->
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Purchase</button>
+                    </div>
+                </form>
+            </div>
+            <!-- cartitems -->
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md-12 order-md-2 mb-4">
+                        <h4 class="d-flex justify-content-between align-items-center mb-3">
+                          <span class="text-muted">Your cart</span>
+                          <span class="badge badge-secondary badge-pill">{{ cartItems.length }}</span>
+                        </h4>
+                        <ul class="list-group mb-3">
+                          <li *ngFor="let cartItem of cartItems" class="list-group-item d-flex justify-content-between lh-condensed">
+                            <div>
+                              <h6 class="my-0">{{ cartItem.name }}</h6>
+                              <small class="text-muted">Quantity (x{{ cartItem.quantity }})</small>
+                            </div>
+                            <span class="text-muted">{{ cartItem.quantity * cartItem.unitPrice | currency: 'INR' }}</span>
+                          </li>
+                          <li class="list-group-item d-flex justify-content-between">
+                            <span>Total (INR)</span>
+                            <strong>{{ totalPrice | currency: 'INR' }}</strong>
+                          </li>
+                        </ul>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
